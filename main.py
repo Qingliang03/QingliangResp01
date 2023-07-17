@@ -67,6 +67,6 @@ def sendMsg(token, dicts, touser):
 if __name__ == '__main__':
     dicts = getWeatherInfo()
     token = getAccessToken()
-    # sendMsg(token, dicts, touserZhao)
+    sendMsg(token, dicts, touserZhao)
     sendMsg(token, dicts, touserKang)
 
