@@ -1,8 +1,8 @@
 name: wechat blog auto
 
-on: workflow_dispatch
-  # schedule:
-  #   - cron: '0 0 * * *'
+on: # workflow_dispatch
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   build-linux:
@@ -15,12 +15,15 @@ jobs:
     # - uses: szenius/set-timezone@v1.0
     #   with:
     #     timezoneLinux: "Asia/Shanghai"
-    - name: Set up Python 3.7
+    
+    - name: Set up Python 3.7 # 安装环境
       uses: actions/setup-python@v3
       with:
         python-version: '3.7'
         catch: 'pip' # 设置缓存
-    - name: Install dependencies
+        
+    - name: Install dependencies # 安装依赖
       run: pip install requests
-    - name: Test
+      
+    - name: Test # 执行
       run: python main.py
