@@ -2,7 +2,7 @@ name: wechat blog auto
 
 on:
   schedule:
-    - cron: '39 * * * *'
+    - cron: '0 8 * * *'
 
 jobs:
   build-linux:
