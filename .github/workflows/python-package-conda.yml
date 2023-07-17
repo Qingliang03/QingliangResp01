@@ -1,7 +1,9 @@
 name: wechat blog auto
 
-on:
+on: |
   workflow_dispatch
+  schedule:
+    - cron: '35 * * * *'
 
 jobs:
   build-linux:
