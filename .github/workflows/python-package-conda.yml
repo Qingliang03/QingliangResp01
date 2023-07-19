@@ -2,7 +2,7 @@ name: wechat blog auto
 
 on: # workflow_dispatch
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '2 23 * * *'
 
 jobs:
   build-linux:
@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: '3.7'
-        catch: 'pip' # 设置缓存
+        cache: 'pip' # 设置缓存
         
     - name: Install dependencies # 安装依赖
       run: pip install requests
