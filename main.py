@@ -3,12 +3,13 @@
 import requests
 import datetime
 
-appid = 'wx4310a47e79c9f991'
-secret = 'bc24e208bae01dec35e0e9beec51772d'
+appid = 'wx4310a47e79c9f991' # appID
+secret = 'bc24e208bae01dec35e0e9beec51772d' # appsecret
 templateId = 'ArowP5LTs666BHYwBrNS5z_eicA47-nDmxJEckrWUkA' # 模板ID
 touserKang = 'oD02T6regpUw7PsH0CJwJz-UsI8c' # 目标微信号
 touserZhao = 'oD02T6usvdZB68OHqwlE1yGGcxZo' # 目标微信号
 
+# 获取token
 def getAccessToken():
     url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' \
           + appid + '&secret=' + secret
@@ -16,6 +17,7 @@ def getAccessToken():
     print(res['access_token'])
     return res['access_token']
 
+# 获取城市天气信息
 def getWeatherInfo():
     url = "http://t.weather.sojson.com/api/weather/city/101120101"  # 获取用户输入的城市进行查询
     request = url
@@ -27,7 +29,8 @@ def getWeatherInfo():
         dicts['max_temperature'] = re['data']['forecast'][0]['high'][3:]
         dicts['min_temperature'] = re['data']['forecast'][0]['low'][3:]
     return dicts
-
+    
+# 向目标用户发送信息
 def sendMsg(token, dicts, touser):
     week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
     week = week_list[datetime.datetime.now().weekday()]
@@ -64,6 +67,7 @@ def sendMsg(token, dicts, touser):
     res = requests.post(url=url, json=msg)
     print(res.text)
 
+# 主函数
 if __name__ == '__main__':
     dicts = getWeatherInfo()
     token = getAccessToken()
