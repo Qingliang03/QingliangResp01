@@ -11,4 +11,3 @@ This is just for fun. Be Happy.
 最高气温: {{max_temperature.DATA}} 
 今天是我们恋爱的第{{love_day.DATA}}天 
 notice：{{notice.DATA}}
-```
