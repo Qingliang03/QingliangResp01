@@ -16,10 +16,10 @@ jobs:
       with:
          timezoneLinux: "Asia/Shanghai"
     
-    - name: Set up Python 3.7 # 安装环境
+    - name: Set up Python 3.8 # 安装环境
       uses: actions/setup-python@v3
       with:
-        python-version: '3.7'
+        python-version: '3.8'
       #  cache: 'pip' # 设置缓存
         
     - name: Install dependencies # 安装依赖
