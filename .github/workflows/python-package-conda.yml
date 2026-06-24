@@ -1,7 +1,7 @@
 name: wechat blog auto
 
 on:
-  # workflow_dispatch
+  workflow_dispatch:
   schedule:
     - cron: '2 23 * * *'
 
